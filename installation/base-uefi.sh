@@ -34,14 +34,15 @@ echo root:$ROOT_PWD | chpasswd
 
 
 # INSTALL PACKAGES
-sudo pacman --needed -Sy - < pkglist.txt
+pacman --needed -Sy - < pkglist.txt
 
 
 # DOWNLOAD GPU DRIVERS
-if lscpi | grep -qi nvidia
+if lscpi | grep -qi nvidia;
 then
 	pacman -S nvidia nvidia-utils nvidia-settings
-elif
+elif lscpi | grep -qi amd;
+then
 	pacman -S xf86-video-amdgpu
 fi
 
