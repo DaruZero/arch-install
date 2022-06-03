@@ -13,7 +13,7 @@ USER_PWD='password'
 
 # LOCALES AND KEYMAP
 # see https://man7.org/linux/man-pages/man7/locale.7.html for more information
-LOCALES=("en_US.UTF-8" "it_IT.UTF-8")
+declare -a LOCALES=("en_US.UTF-8" "it_IT.UTF-8")
 LANG='en_US.UTF-8'
 LC_TIME='it_IT.UTF-8'
 KEYMAP='it'
