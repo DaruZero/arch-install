@@ -1,0 +1,4 @@
+balena-etcher
+insomnia
+onlyoffice-bin
+spotify

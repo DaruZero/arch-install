@@ -1,0 +1,16 @@
+alacritty
+atom
+audacity
+bitwarden
+discord
+firefox
+gimp
+htop
+leafpad
+obs-studio
+qbittorrent
+steam
+telegram-desktop
+thunderbird
+virt-manager
+vlc
