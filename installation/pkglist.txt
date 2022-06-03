@@ -34,6 +34,7 @@ ntfs-3g
 openbsd-netcat
 openssh
 os-prober
+pciutils
 pipewire
 pipewire-alsa
 pipewire-jack

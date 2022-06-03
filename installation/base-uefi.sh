@@ -77,5 +77,5 @@ usermod -aG libvirt $USER
 echo "$USER ALL=(ALL) ALL" >> /etc/sudoers.d/$USER
 
 
-printf "\e[1;32mDone! Type exit, umount -a and reboot.\e[0m"
+printf "\e[1;32mDone! Type exit, umount -R /mnt and reboot.\e[0m"
 

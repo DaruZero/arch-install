@@ -11,6 +11,11 @@ sudo hwclock --systohc
 # SYNC MIRRORLIST
 sudo reflector -c $COUNTRY -a 6 --sort rate --save /etc/pacman.d/mirrorlist
 
+# INSTALL YAY
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+
 # INSTALL PLASMA
 sudo pacman -Sy --noconfirm xorg sddm plasma materia-kde
 
