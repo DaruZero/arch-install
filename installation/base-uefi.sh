@@ -13,6 +13,7 @@ USER_PWD='password'
 
 # LOCALES AND KEYMAP
 # see https://man7.org/linux/man-pages/man7/locale.7.html for more information
+LOCALES=("en_US.UTF-8" "it_IT.UTF-8")
 LANG='en_US.UTF-8'
 LC_TIME='it_IT.UTF-8'
 KEYMAP='it'
@@ -21,7 +22,10 @@ KEYMAP='it'
 # INITIAL CONFIGURATION
 ln -sf /usr/share/zoneinfo/$CONTINENT/$STATE /etc/localtime
 hwclock --systohc
-sed -i "/$LOCALE/s/^#//" /etc/locale.gen
+for LOCALE in "${LOCALES[@]}"
+do
+	sed -i "$LOCALE/s/^#//" /etc/locale.gen
+done
 locale-gen
 echo "LANG=$LANG" >> /etc/locale.conf
 echo "LC_TIME=$LC_TIME" >> /etc/locale.conf
