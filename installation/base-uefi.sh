@@ -13,9 +13,10 @@ USER_PWD='password'
 
 # LOCALES AND KEYMAP
 # see https://man7.org/linux/man-pages/man7/locale.7.html for more information
+# append _VAR to the end to avoid conflicts with env variables
 declare -a LOCALES=("en_US.UTF-8" "it_IT.UTF-8")
 LANG='en_US.UTF-8'
-LC_TIME='it_IT.UTF-8'
+LC_TIME_VAR='it_IT.UTF-8'
 KEYMAP='it'
 
 
@@ -28,7 +29,7 @@ do
 done
 locale-gen
 echo "LANG=$LANG" >> /etc/locale.conf
-echo "LC_TIME=$LC_TIME" >> /etc/locale.conf
+echo "LC_TIME=$LC_TIME_VAR" >> /etc/locale.conf
 echo "KEYMAP=$KEYMAP" >> /etc/vconsole.conf
 echo "$HOSTNAME" >> /etc/hostname
 echo "127.0.0.1 localhost" >> /etc/hosts
