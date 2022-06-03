@@ -21,7 +21,7 @@ KEYMAP='it'
 # INITIAL CONFIGURATION
 ln -sf /usr/share/zoneinfo/$CONTINENT/$STATE /etc/localtime
 hwclock --systohc
-sed -i "$LOCALE/s/^#//" /etc/locale.gen
+sed -i "/$LOCALE/s/^#//" /etc/locale.gen
 locale-gen
 echo "LANG=$LANG" >> /etc/locale.conf
 echo "LC_TIME=$LC_TIME" >> /etc/locale.conf
