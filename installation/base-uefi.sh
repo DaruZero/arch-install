@@ -1,4 +1,14 @@
 #!/bin/bash
+#  ____    __  _____  _   _
+# |  _ \  /  \|  _  \| | | |   Matteo Danelon
+# | | | |/ /\ \ |_| /| | | |   https://github.com/DaruZero/
+# | |_| /  __  \ _  \| |_| |
+# |____/__/  \__| \__\_____/
+# 
+# NAME: bash-uefi.sh
+# DESC: An installations script for UEFI systems
+# WARNING: Run this script at  your own risk
+
 
 
 # VARIABLES
