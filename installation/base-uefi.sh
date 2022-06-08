@@ -51,7 +51,7 @@ generate_locale() { \
 	echo "[INFO] Generating locale"
 	for LOCALE in "${LOCALES[@]}"
 	do
-		sed -i "$LOCALE/s/^#//" /etc/locale.gen
+		sed -i $LOCALE/s/\#// /etc/locale.gen
 	done
 
 	locale-gen
