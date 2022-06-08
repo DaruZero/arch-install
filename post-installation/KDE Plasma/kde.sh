@@ -9,31 +9,53 @@
 # DESC: A post-installations script to install the KDE Plasma desktop environment
 # WARNING: Run this script at  your own risk
 
-
 # VARIABLES
 COUNTRY='Italy'
 
-# SET TIME
-sudo timedatectl set-ntp true
-sudo hwclock --systohc
 
-# SYNC MIRRORLIST
-sudo reflector -c $COUNTRY -a 6 --sort rate --save /etc/pacman.d/mirrorlist
+# Function to print the error and exit the script
+error() { \
+    clear; printf "[ERROR]\\n%s\\n" "$1" >&2; exit 1;
+}
 
-# INSTALL YAY
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
 
-# INSTALL PLASMA
-sudo pacman -Sy --noconfirm xorg sddm plasma materia-kde
+set_time() { \
+    echo "[INFO] Syncing time"
+    sudo timedatectl set-ntp true
+    sudo hwclock --systohc
+}
 
-# INSTALL OTHER PROGRAMS
-sudo pacman -Sy - < pkglist.txt
+set_time || error "Could not synchronize time"
+
+
+echo "[INFO] Updating mirrorlist"
+sudo reflector -c $COUNTRY -a 6 --sort rate --save /etc/pacman.d/mirrorlist || error "Updating mirrorlist with reflector"
+echo "[INFO] Updating packages"
+sudo pacman -Syy --needed || error "Syncing packages"
+
+
+install_yay() { \
+    echo "[INFO] Installing yay"
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+}
+
+install_yay || Error "While installing yay"
+
+
+echo "[INFO] Installing Plasma"
+sudo pacman -Sy --noconfirm xorg sddm plasma materia-kde || error "Could not install Plasma"
+
+
+echo "[INFO] Installing other packages"
+sudo pacman -Sy - < pkglist.txt || error "Could not install the other packages"
+echo "[INFO] Installing other AUR packages"
 yay -S - < aurlist.txt
 
-# FINALIZE INSTALLATION
+
+echo "[INFO] Enabling sddm"
 sudo systemctl enable sddm
-/bin/echo -e "\e[1;32mREBOOTING IN 5..4..3..2..1..\e[0m"
+echo "REBOOTING IN 5..4..3..2..1.."
 sleep 5
 reboot
