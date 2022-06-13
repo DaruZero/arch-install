@@ -20,20 +20,20 @@ USER_PWD='password'
 
 # LOCALES AND KEYMAP
 # see https://man7.org/linux/man-pages/man7/locale.7.html for more information
-declare -a LOCALES=("en_US.UTF-8" "it_IT@euro ISO-8859-15")
-LANG='${LOCALES[0]}'
-ADDRESS='${LOCALES[1]}'
-COLLATE='${LOCALES[1]}'
-CTYPE='${LOCALES[1]}'
-IDENTIFICATION='${LOCALES[1]}'
-MONETARY='${LOCALES[1]}'
-MESSAGES='${LOCALES[1]}'
-MEASUREMENT='${LOCALES[1]}'
-NAME='${LOCALES[1]}'
-NUMERIC='${LOCALES[1]}'
-PAPER='${LOCALES[1]}'
-TELEPHONE='${LOCALES[1]}'
-TIME='${LOCALES[1]}'
+declare -a LOCALES=("en_US.UTF-8" "it_IT@euro")
+LANG="${LOCALES[0]}"
+ADDRESS="${LOCALES[1]}"
+COLLATE="${LOCALES[1]}"
+CTYPE="${LOCALES[1]}"
+IDENTIFICATION="${LOCALES[1]}"
+MONETARY="${LOCALES[1]}"
+MESSAGES="${LOCALES[1]}"
+MEASUREMENT="${LOCALES[1]}"
+NAME="${LOCALES[1]}"
+NUMERIC="${LOCALES[1]}"
+PAPER="${LOCALES[1]}"
+TELEPHONE="${LOCALES[1]}"
+TIME="${LOCALES[1]}"
 KEYMAP='it'
 
 # Function to print the error and exit the script
